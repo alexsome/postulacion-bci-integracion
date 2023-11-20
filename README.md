@@ -12,7 +12,8 @@
 ### Ejecución:
 
 * Descargar respositorio : git clone https://github.com/alexsome/postulacion-bci-integracion.git
-* Ejecutar via IDE o terminal: gradle bootRun 
+* Ejecutar via IDE o terminal: gradle bootRun
+* Swagger: http://localhost:8080/swagger-ui/index.html
 * Probar endpoint via postman: localhost:8080/user/list
 
 #### Curls:

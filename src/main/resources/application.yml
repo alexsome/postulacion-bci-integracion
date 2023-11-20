@@ -1,11 +1,11 @@
 spring:
   application:
-    name: postulacionDB
+    name: postulacion
   datasource:
     driver-class-name: org.h2.Driver
     username: sa
     password: admin
-    url: "jdbc:h2:mem:postulacionDB;DB_CLOSE_ON_EXIT=FALSE"
+    url: "jdbc:h2:mem:postulacion;DB_CLOSE_ON_EXIT=FALSE"
   h2:
     console:
       enabled: true

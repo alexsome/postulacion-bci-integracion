@@ -15,7 +15,7 @@ import java.util.Collections;
 
 @Configuration
 @EnableSwagger2
-public class SwaggerConfiguration {
+public class SwaggerConfig {
     @Bean
     public Docket docket() {
         return new Docket(DocumentationType.SWAGGER_2)
@@ -30,7 +30,7 @@ public class SwaggerConfiguration {
         return new ApiInfo(
                 "Postulacion Banco BCI",
                 "Aplicación que expone una API RESTful de creación de usuarios",
-                "v1",
+                "1.0",
                 "Terms of service",
                 new Contact("Alex Soto Méndez","https://www.linkedin.com/in/alex-soto-m%C3%A9ndez-a9495376",
                         "alex.soto.29.9.88@gmail.com"),
@@ -40,3 +40,9 @@ public class SwaggerConfiguration {
         );
     }
 }
+
+
+
+
+
+

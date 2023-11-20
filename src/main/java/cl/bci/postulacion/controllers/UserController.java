@@ -5,6 +5,8 @@ import cl.bci.postulacion.services.IUserService;
 import cl.bci.postulacion.utils.UserValidator;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +16,7 @@ import java.util.*;
 
 @RestController
 @RequestMapping("/user")
-@Api(value = "Administracion Usuario")
+@Api(tags = "Controlador de Usuarios", value = "Administracion Usuario")
 public class UserController {
     private final IUserService userService;
 
@@ -24,6 +26,12 @@ public class UserController {
 
     @GetMapping("/list")
     @ApiOperation(value = "to get all users", response = User.class)
+    @ApiResponses(
+            value = {
+                    @ApiResponse(code = 200, message = "Getting all users"),
+                    @ApiResponse(code = 400, message = "Bad request"),
+                    @ApiResponse(code = 500, message = "Something went wrong")
+            })
     public ResponseEntity<List<User>> users(){
         return ResponseEntity.ok(userService.findAll());
     }
@@ -42,6 +50,7 @@ public class UserController {
     }
 
     @PostMapping("/create")
+    @ApiOperation(value = "Create user", response = User.class)
     public ResponseEntity<?> create(@RequestBody User user){
         Map<String, Object> response = new HashMap<>();
         User findUser = this.userService.findUserByEmail(user.getEmail());
@@ -75,6 +84,7 @@ public class UserController {
     }
 
     @PutMapping("/update/{email}")
+    @ApiOperation(value = "Update user", response = User.class)
     public ResponseEntity<?> update(@RequestBody User user, @PathVariable String email){
         Map<String, Object> response = new HashMap<>();
 

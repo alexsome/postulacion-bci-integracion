@@ -1,5 +1,7 @@
 package cl.bci.postulacion.models;
 
+import io.swagger.annotations.ApiModel;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
@@ -8,6 +10,7 @@ import java.util.*;
 
 @Entity
 @Table(name = "users",schema = "public")
+@ApiModel(value = "UserModel", description = "Model who represents an user entity")
 public class User implements Serializable {
     private static final long serialVersionUID = -2974550049265724377L;
 
